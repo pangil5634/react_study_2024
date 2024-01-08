@@ -6,13 +6,18 @@ export default function Header() {
     return (
         <Page>
             <InnerPage>
+
+                {/* 메뉴바 영역 */}
                 <Div>
+                    {/* Logo 부분 */}
                     <Section_Logo>
                         <Menu to="/">
                             {/* <P>image</P> */}
                             <Img src={`/Logo.png`} alt="logo image"/>
                         </Menu>
                     </Section_Logo>
+
+                    {/* 페이지 부분 */}
                     <Section_Menu>
                         <Menu to="/About">
                             <P>About</P>
@@ -22,6 +27,8 @@ export default function Header() {
                         </Menu>
                     </Section_Menu>
                 </Div>
+
+                {/* Outlet 영역 */}
                 <div style={OutletStyle}>
                     <Outlet/>
                 </div>
@@ -35,9 +42,10 @@ const Div = styled.div `
 
     width: 100%;
     height : 50px;
-    /* background-color: gray; */
 
     display: flex;
+
+    /* background-color: gray; */
 
 `;
 
@@ -66,16 +74,17 @@ const Img = styled.img `
     height : 100%;
 `;
 
-const P = styled.p `
+const P = styled.p`
+    height : 100%;
+    
+    display: flex;
+    align-items: center;
+    
     margin : 0px;
     margin-left: 50px;
 
-    height : 100%;
     font-size: 25px;
-
-    display: flex;
-    align-items: center;
-`
+`;
 
 const Menu = styled(Link)`
     height : 100%;
@@ -89,12 +98,11 @@ const Menu = styled(Link)`
     }
 `;
 
-export const OutletStyle = {
-    width: "100%",
-    height: "100%",
+const OutletStyle = styled.div`
+    width: 100%;
+    height: 100%;
 
-    borderRadius: "30px",
+    margin-top : 40px;
 
-
-    marginTop: "40px",
-};
+    border-radius: 30px;
+`;
