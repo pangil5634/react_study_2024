@@ -1,16 +1,33 @@
+import {Link, Outlet} from "react-router-dom";
 import styled from "styled-components";
+import {InnerPage, Page} from "./App_Components";
 
 export default function Header() {
     return (
-        <Div>
-            <Section_Logo>
-                <Img src={`/Logo.png`} alt="logo image"/>
-            </Section_Logo>
-            <Section_Menu>
-                <Menu name="About"/>
-                <Menu name="Category"/>
-            </Section_Menu>
-        </Div>
+        <Page>
+            <InnerPage>
+                <Div>
+                    <Section_Logo>
+                        <Menu to="/">
+                            {/* <P>image</P> */}
+                            <Img src={`/Logo.png`} alt="logo image"/>
+                        </Menu>
+                    </Section_Logo>
+                    <Section_Menu>
+                        <Menu to="/About">
+                            <P>About</P>
+                        </Menu>
+                        <Menu to="/Category">
+                            <P>Category</P>
+                        </Menu>
+                    </Section_Menu>
+                </Div>
+                <div style={OutletStyle}>
+                    <Outlet/>
+                </div>
+            </InnerPage>
+        </Page>
+
     );
 }
 
@@ -21,7 +38,6 @@ const Div = styled.div `
     /* background-color: gray; */
 
     display: flex;
-    align-items: center;
 
 `;
 
@@ -31,6 +47,7 @@ const Section_Logo = styled.div `
 
     display: flex;
     flex : 0.3;
+
     /* background-color: red; */
 `
 
@@ -39,31 +56,45 @@ const Section_Menu = styled.div `
     height: inherit;
 
     display: flex;
-    flex : 0.7;
+    /* flex : 0.7; */
     justify-content: end;
-    background-color: yellow;
+
+    /* background-color: yellow; */
 `;
 
 const Img = styled.img `
+    height : 100%;
+`;
 
+const P = styled.p `
+    margin : 0px;
+    margin-left: 50px;
+
+    height : 100%;
+    font-size: 25px;
+
+    display: flex;
+    align-items: center;
 `
 
-const Menu = (e) => {
-    const P = styled.p`
-        font-weight: bold;
-        font-size: 20px;
-        width : 10%;
-        height: 100%;
+const Menu = styled(Link)`
+    height : 100%;
 
-        margin: 0px;
-        margin-left: 10px;
-        background-color: aqua;
+    text-decoration: none;
+    color : inherit;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    `
-    return (
-        <P>{e.name}</P>
-    );
-}
+    &:hover{
+        opacity: 50%;
+        color : #0079FF;
+    }
+`;
+
+export const OutletStyle = {
+    width: "100%",
+    height: "100%",
+
+    borderRadius: "30px",
+
+
+    marginTop: "40px",
+};
