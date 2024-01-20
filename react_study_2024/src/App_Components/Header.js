@@ -8,7 +8,7 @@ export default function Header() {
             <InnerPage>
 
                 {/* 메뉴바 영역 */}
-                <Div>
+                <MenuBarDiv>
                     {/* Logo 부분 */}
                     <Section_Logo>
                         <Menu to="/">
@@ -26,19 +26,19 @@ export default function Header() {
                             <P>Category</P>
                         </Menu>
                     </Section_Menu>
-                </Div>
+                </MenuBarDiv>
 
                 {/* Outlet 영역 */}
-                <div style={OutletStyle}>
+                <main>
                     <Outlet/>
-                </div>
+                </main>
             </InnerPage>
         </Page>
 
     );
 }
 
-const Div = styled.div `
+const MenuBarDiv = styled.div `
 
     width: 100%;
     height : 50px;
@@ -46,6 +46,7 @@ const Div = styled.div `
     display: flex;
 
     /* background-color: gray; */
+    margin-bottom: 50px;
 
 `;
 
@@ -96,13 +97,4 @@ const Menu = styled(Link)`
         opacity: 50%;
         color : #0079FF;
     }
-`;
-
-const OutletStyle = styled.div`
-    width: 100%;
-    height: 100%;
-
-    margin-top : 40px;
-
-    border-radius: 30px;
 `;
