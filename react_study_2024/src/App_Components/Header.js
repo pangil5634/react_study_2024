@@ -29,7 +29,7 @@ export default function Header() {
                 </MenuBarDiv>
 
                 {/* Outlet 영역 */}
-                <main>
+                <main style={OutletStyle}>
                     <Outlet/>
                 </main>
             </InnerPage>
@@ -46,7 +46,7 @@ const MenuBarDiv = styled.div `
     display: flex;
 
     /* background-color: gray; */
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 
 `;
 
@@ -75,7 +75,7 @@ const Img = styled.img `
     height : 100%;
 `;
 
-const P = styled.p`
+const P = styled.p `
     height : 100%;
     
     display: flex;
@@ -98,3 +98,10 @@ const Menu = styled(Link)`
         color : #0079FF;
     }
 `;
+
+const OutletStyle = {
+    // 여기에 스타일 속성을 추가하세요
+    width: "100%", 
+    height: "100%",
+    backgroundColor : "gray",
+};

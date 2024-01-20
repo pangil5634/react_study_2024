@@ -29,4 +29,6 @@ export const InnerPage = styled.div`
     margin : 0px;
     padding : 40px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction : column;
 `
