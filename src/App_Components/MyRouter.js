@@ -11,6 +11,7 @@ import ChatBox from '../Pages/UseRef/UseRef';
 import Parent from '../Pages/Memorization/Parent';
 import Calculator from '../Pages/Memorization/Calculator';
 import CallbackParent from '../Pages/Memorization/CallbackParent';
+import TodoApp from '../Pages/UseReducer/TodoApp';
 // Router를 관리하는 컴포넌트
 function MyRouter() {
     return (
@@ -28,7 +29,9 @@ function MyRouter() {
                     <Route path="/useRef" element={<ChatBox/> }/>
                     <Route path="/memo" element={<Parent />} />
                     <Route path="/useMemo" element={<Calculator />} />
-                    <Route path="/useCallback" element={<CallbackParent/>} />
+                    <Route path="/useCallback" element={<CallbackParent />} />
+                    <Route path="/useReducer" element={<TodoApp/>} />
+                    
                 </Route>
             </Routes>
         </BrowserRouter>
